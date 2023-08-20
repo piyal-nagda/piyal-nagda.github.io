@@ -1,0 +1,132 @@
+body{
+    
+    font-family: Arial,sans-serif;
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    
+}
+
+.instruction {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 300px; 
+    text-align: left;
+}
+
+
+
+.instruction
+{
+    
+    
+    align-items:center;
+    justify-content: center;
+
+}
+.stopwatch-container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-image: url('rubix.jpeg'); 
+    background-size: cover;
+    background-repeat: no-repeat
+
+}
+.stopwatch {
+
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+}
+.stopwatch-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 18px;
+    padding: 40px;
+    width:400px;
+    height: 500px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.7);
+
+}
+#start,
+#stop,
+#reset {
+    font-size: 10px; 
+    padding: 12px 24px;
+    border-radius: 20%; 
+    border: none; 
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+
+.previous-times
+{
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 18px;
+    color: white;
+}
+.background-options{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:right;
+    gap:10px;
+}
+.bg-button
+{
+    padding:12px 24px;
+    border:none;
+    border-radius: 10%; 
+    cursor: pointer;
+    font-size: 16px;
+}
+#item-list
+{
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+
+}
+#item-list li{
+    margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+    .stopwatch-container {
+        width: 100%; 
+        padding: 20px; 
+    }
+    
+    .instruction {
+        position: static; 
+        margin-top: 20px;
+        text-align: center; 
+    }
+}
+
+
+
