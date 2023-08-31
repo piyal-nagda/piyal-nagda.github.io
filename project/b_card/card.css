@@ -1,1 +1,116 @@
+body {
+    background-color:rgb(191, 236, 221)
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+h2 {
+    animation: 1s blink linear infinite;
+    display: flex;
+    justify-content: center;
+}
+
+.birthdayCard {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 1s;
+}
+
+.cardFront {
+    position: relative;
+    background-color: #000000;
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .2), 30px 0 50px rgba(0, 0, 0, 0.4);
+    transition: .6s;
+}
+
+.happy {
+    font-family: Tahoma, sans-serif;
+    text-align: center;
+    margin: 30px;
+    background-image: linear-gradient(120deg, #65f1f6 0%, #b483af 100%);
+    transition: .1s;
+}
+
+.balloonOne {
+    position: absolute;
+    width: 85px;
+    height: 95px;
+    border-radius: 50%;
+    background-color: rgba(160, 110, 235, 0.765);
+    left: 82px;
+    top: 100px;
+}
+
+.balloonOne:before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 155px;
+    background-color: #ffd166;
+    top: 95px;
+    left: 43px;
+}
+
+.balloonOne:after {
+    content: "";
+    position: absolute;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    top: 94px;
+    left: 37px;
+    border-bottom: 10px solid #ea748f;
+}
+
+.cardInside {
+    position: absolute;
+    background-color: #131313;
+    width: 250px;
+    height: 350px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
+    color: aliceblue;
+}
+
+.name {
+   position: absolute;
+    left: 150px;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.back {
+    font-family: Tahoma, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin: 30px;
+    outline-color: #ffffff;
+    outline-style: dashed;
+    
+}
+
+birthdayCard:hover {
+    transform: perspective(2500px);
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .2), 0 10px 100px rgba(0, 0, 0, 0.5);
+}
+
+.birthdayCard:hover .cardFront {
+    transform: rotateY(-130deg);
+}
+
+
 
