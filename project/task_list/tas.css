@@ -1,43 +1,46 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-   
-    /* background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(249,20,250,1) 0%, rgba(103,14,227,0.9685863874345549) 79%); */
 }
-body{
-    background: rgb(2,0,36);
-     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(249,20,250,1) 0%, rgba(103,14,227,0.9685863874345549) 79%);
-   
-}
-.container{
-    width:100%;
-    min-height: 100vh;
-  
-}
-.todo-app
-{
-   width:100%;
-   max-width:540px;
-   background: #fff;
-   margin: 100px auto 20px;
-   padding:40px 30px 70px;
-   border-radius: 10px;
-   background: rgb(2,0,36);
 
+body {
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%,black(249,20,250,1) 0%,black(103,14,227,0.9685863874345549) 79%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
-.todo-app h2{
-    color:lightyellow;
-    display:flex;
-    align-items:center;
-    margin-bottom:20px ;
+
+.container {
+    width: 100%;
+    max-width: 540px;
+   
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+    background: transparent;
+    z-index: 1;  /* Ensure the todo-app is above the glowing effect */
+    position: relative;
 }
-.todo-app h2 img{
-width: 30px;
-margin-left: 20px;
+
+.todo-app h2 {
+    color: lightyellow;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
-.row{
+
+.todo-app h2 img {
+    width: 30px;
+    margin-left: 20px;
+}
+
+.row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,27 +49,28 @@ margin-left: 20px;
     padding-left: 20px;
     margin-bottom: 25px;
 }
-input{
+
+input {
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
     padding: 10px;
-    font-weight:14px;
-
+    font-weight: 14px;
 }
-button{
+
+button {
     border: none;
     outline: none;
     padding: 16px 50px;
     background: lightgoldenrodyellow;
-    color:black;
-    font-size: 16;
+    color: black;
+    font-size: 16px;
     cursor: pointer;
-    border-radius:40px;
-
+    border-radius: 40px;
 }
-ul li{
+
+ul li {
     list-style: none;
     font-size: 17px;
     padding: 12px 8px 12px 50px;
@@ -75,41 +79,139 @@ ul li{
     color: lightcyan;
     position: relative;
 }
-ul li::before{
-    content:'';
+
+ul li::before {
+    content: '';
     position: absolute;
     height: 28px;
     width: 28px;
     border-radius: 50%;
     background-image: url(icon.png);
-    background-size:cover;
-    background-position:center;
-    top:12px;
-    left:8px;
-
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
 }
-ul li.checked{
+
+ul li.checked {
     color: lightcyan;
     text-decoration: line-through;
 }
-ul li.checked:before{
+
+ul li.checked::before {
     background-image: url(icon2.jpeg);
 }
-ul li span{
+
+ul li span {
     position: absolute;
-    right:0;
-    top:5px;
+    right: 0;
+    top: 5px;
     width: 40px;
     height: 40px;
     font-size: 22px;
     color: lawngreen;
     line-height: 40px;
     text-align: center;
-    border-radius:50%;
-
-
+    border-radius: 50%;
 }
-ul li span:hover{
-    background-color: grey;
 
+ul li span:hover {
+    background-color: grey;
+}
+
+.glowing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 700px;
+    height: 550px;
+    transform-origin: center;
+    animation: colorChange 5s linear infinite;
+    z-index: 0;  /* Ensure the glowing effect is below the todo-app */
+}
+
+.glowing:nth-child(even) {
+    transform-origin: center;
+}
+
+@keyframes colorChange {
+    0% {
+        filter: hue-rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.glowing span {
+    position: absolute;
+    top: calc(80px * var(--i));
+    left: calc(80px * var(--i));
+    bottom: calc(80px * var(--i));
+    right: calc(80px * var(--i));
+}
+
+.glowing span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background: #f00;
+    border-radius: 50%;
+}
+
+.glowing span:nth-child(3n + 1)::before {
+    background: rgba(134,255,0,1);
+    box-shadow: 0 0 20px rgba(134,255,0,1), 0 0 40px rgba(134,255,0,1), 0 0 60px rgba(134,255,0,1), 0 0 80px rgba(134,255,0,1), 0 0 0 8px rgba(134,255,0,.1);
+}
+
+.glowing span:nth-child(3n + 2)::before {
+    background: rgba(255,214,0,1);
+    box-shadow: 0 0 20px rgba(255,214,0,1), 0 0 40px rgba(255,214,0,1), 0 0 60px rgba(255,214,0,1), 0 0 80px rgba(255,214,0,1), 0 0 0 8px rgba(255,214,0,.1);
+}
+
+.glowing span:nth-child(3n + 3)::before {
+    background: rgba(0,226,255,1);
+    box-shadow: 0 0 20px rgba(0,226,255,1), 0 0 40px rgba(0,226,255,1), 0 0 60px rgba(0,226,255,1), 0 0 80px rgba(0,226,255,1), 0 0 0 8px rgba(0,226,255,.1);
+}
+
+.glowing span:nth-child(3n + 1) {
+    animation: animate 10s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 2) {
+    animation: animate-reverse 3s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 3) {
+    animation: animate 8s alternate infinite; 
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(180deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-reverse {
+    0% {
+        transform: rotate(360deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
