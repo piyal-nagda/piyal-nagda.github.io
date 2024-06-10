@@ -5,54 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Priyal's Page</title>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: black;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 5px;
+        .card {
+            background: white;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .card img {
+            max-width: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
             transition: all 0.3s ease;
         }
 
-        a:hover {
-            background-color: #f0f0f0;
-        }
-
-        h1 {
-            text-align: center;
+        .card .heading {
+            font-size: 24px;
             margin-bottom: 20px;
         }
+
+        .links-grid {
+            display: none;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .links-grid a {
+            text-decoration: none;
+            color: #333;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .links-grid a:hover {
+            background-color: lightyellow;
+        }
+
+        .card:hover {
+            width: 600px;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .card:hover img {
+            margin-right: 20px;
+        }
+
+        .card:hover .links-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+
+.card:hover .heading {
+    display: none; /* Show the heading on hover */
+}
+
+.card:hover .image {
+    transform: scale(1.9); /* Increase the size of the image slightly on hover */
+}
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Welcome to Priyal's Page</h1>
-<!--     <a href="/https://drive.google.com/file/d/12dE6VTn_won5YhXgaQFLDtc5_UgCW6ak/view">Resume</a> -->
-    <a href="/project/PORTFOLIO/index.html">Portfolio</a>
-    <a href="/project/stopwatch/stop.html">Stopwatch</a>
-    <a href="/project/b_card/b_crd.html">Card</a>
-    <a href="project/task_list/tas.html">to-dooo</a>
-    <a href="project/text_speech/index.html">Text_to_speech</a>
-    
-    
+<div class="card">
+    <img
+        class="image"
+        alt=""
+        src="https://uiverse.io/build/_assets/astronaut-WTFWARES.png"
+    />
+    <div class="heading">Hover </div>
+    <div class="links-grid">
+        <a href="/project/PORTFOLIO/index.html">Portfolio</a>
+        <a href="/project/stopwatch/stop.html">Stopwatch</a>
+        <a href="/project/b_card/b_crd.html">Card</a>
+        <a href="project/task_list/tas.html">To-do</a>
+        <a href="project/text_speech/index.html">Text to Speech</a>
+        
+    </div>
 </div>
 
 </body>
